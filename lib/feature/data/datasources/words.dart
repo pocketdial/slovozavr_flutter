@@ -1,7 +1,7 @@
 import 'dart:math';
 
 class Words {
-  static final _random = new Random();
+  static final _random = Random();
 
   static String getRandomWord() {
     return words[_random.nextInt(325)];
