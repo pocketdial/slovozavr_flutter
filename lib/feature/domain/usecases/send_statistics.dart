@@ -1,3 +1,4 @@
+import 'package:slovozavr_flutter/feature/domain/entities/statistics_entity.dart';
 import 'package:slovozavr_flutter/feature/domain/repositories/statistics_repository.dart';
 
 class SendStatistics {
@@ -5,7 +6,7 @@ class SendStatistics {
 
   SendStatistics(this.statisticsRepository);
 
-  void call(int resultOfGame) {
-    statisticsRepository.sendStatistics(resultOfGame);
+  void call(StatisticsEntity statisticsEntity) {
+    statisticsRepository.sendStatistics(statisticsEntity);
   }
 }
