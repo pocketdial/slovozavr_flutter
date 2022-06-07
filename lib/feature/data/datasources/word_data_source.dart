@@ -4,13 +4,13 @@ import 'package:slovozavr_flutter/feature/data/models/word_model.dart';
 
 abstract class WordDataSource {
   WordModel getSecretWord();
-  bool checkWord(WordModel wordModel);
+  bool checkWord(String word);
 }
 
 class WordDataSourceImpl implements WordDataSource {
   @override
-  bool checkWord(WordModel wordModel) {
-    return WordsFull.isWordExists(wordModel.value);
+  bool checkWord(String word) {
+    return WordsFull.isWordExists(word);
   }
 
   @override

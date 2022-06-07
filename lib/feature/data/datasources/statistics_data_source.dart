@@ -2,8 +2,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:slovozavr_flutter/feature/data/models/statistics_model.dart';
 
 abstract class StatisticsDataSource {
-  Future<StatisticsModel> getStatistics();
-  Future<void> sendStatistics(StatisticsModel statisticsModel);
+  StatisticsModel getStatistics();
+  void sendStatistics(StatisticsModel statisticsModel);
 }
 
 const NUMBER_OF_GAMES = 'NUMBER_OF_GAMES';
@@ -23,7 +23,7 @@ class StatisticsDataSourceImpl implements StatisticsDataSource {
   StatisticsDataSourceImpl(this.sharedPreferences);
 
   @override
-  Future<StatisticsModel> getStatistics() {
+  StatisticsModel getStatistics() {
     final statisticsModel = StatisticsModel(
         sharedPreferences.getInt(NUMBER_OF_GAMES) ?? 0,
         sharedPreferences.getInt(NUMBER_OF_WIN_GAMES) ?? 0,
@@ -35,11 +35,11 @@ class StatisticsDataSourceImpl implements StatisticsDataSource {
         sharedPreferences.getInt(GUESS_4) ?? 0,
         sharedPreferences.getInt(GUESS_5) ?? 0,
         sharedPreferences.getInt(GUESS_6) ?? 0);
-    return Future.value(statisticsModel);
+    return statisticsModel;
   }
 
   @override
-  Future<void> sendStatistics(StatisticsModel statisticsModel) {
+  void sendStatistics(StatisticsModel statisticsModel) {
     sharedPreferences.setInt(NUMBER_OF_GAMES, statisticsModel.numberOfGames);
     sharedPreferences.setInt(
         NUMBER_OF_WIN_GAMES, statisticsModel.numberOfWinGames);
@@ -62,6 +62,5 @@ class StatisticsDataSourceImpl implements StatisticsDataSource {
     print('GUESS_4: ${sharedPreferences.getInt(GUESS_4)}');
     print('GUESS_5: ${sharedPreferences.getInt(GUESS_5)}');
     print('GUESS_6: ${sharedPreferences.getInt(GUESS_6)}');
-    return Future.value();
   }
 }
