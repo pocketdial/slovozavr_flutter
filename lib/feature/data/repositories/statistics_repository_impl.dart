@@ -14,6 +14,6 @@ class StatisticsRepositoryImpl implements StatisticsRepository {
 
   @override
   void sendStatistics(StatisticsEntity statisticsEntity) {
-    //  statisticsDataSource.sendStatistics(statisticsEntity.toString())
+    statisticsDataSource.sendStatistics(statisticsEntity);
   }
 }

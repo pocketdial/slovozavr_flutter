@@ -1,9 +1,10 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:slovozavr_flutter/feature/data/models/statistics_model.dart';
+import 'package:slovozavr_flutter/feature/domain/entities/statistics_entity.dart';
 
 abstract class StatisticsDataSource {
   StatisticsModel getStatistics();
-  void sendStatistics(StatisticsModel statisticsModel);
+  void sendStatistics(StatisticsEntity statisticsEntity);
 }
 
 const NUMBER_OF_GAMES = 'NUMBER_OF_GAMES';
@@ -39,18 +40,18 @@ class StatisticsDataSourceImpl implements StatisticsDataSource {
   }
 
   @override
-  void sendStatistics(StatisticsModel statisticsModel) {
-    sharedPreferences.setInt(NUMBER_OF_GAMES, statisticsModel.numberOfGames);
+  void sendStatistics(StatisticsEntity statisticsEntity) {
+    sharedPreferences.setInt(NUMBER_OF_GAMES, statisticsEntity.numberOfGames);
     sharedPreferences.setInt(
-        NUMBER_OF_WIN_GAMES, statisticsModel.numberOfWinGames);
-    sharedPreferences.setInt(CURRENT_STREAK, statisticsModel.currentStreak);
-    sharedPreferences.setInt(MAX_STREAK, statisticsModel.maxStreak);
-    sharedPreferences.setInt(GUESS_1, statisticsModel.guess1);
-    sharedPreferences.setInt(GUESS_2, statisticsModel.guess2);
-    sharedPreferences.setInt(GUESS_3, statisticsModel.guess3);
-    sharedPreferences.setInt(GUESS_4, statisticsModel.guess4);
-    sharedPreferences.setInt(GUESS_5, statisticsModel.guess5);
-    sharedPreferences.setInt(GUESS_6, statisticsModel.guess6);
+        NUMBER_OF_WIN_GAMES, statisticsEntity.numberOfWinGames);
+    sharedPreferences.setInt(CURRENT_STREAK, statisticsEntity.currentStreak);
+    sharedPreferences.setInt(MAX_STREAK, statisticsEntity.maxStreak);
+    sharedPreferences.setInt(GUESS_1, statisticsEntity.guess1);
+    sharedPreferences.setInt(GUESS_2, statisticsEntity.guess2);
+    sharedPreferences.setInt(GUESS_3, statisticsEntity.guess3);
+    sharedPreferences.setInt(GUESS_4, statisticsEntity.guess4);
+    sharedPreferences.setInt(GUESS_5, statisticsEntity.guess5);
+    sharedPreferences.setInt(GUESS_6, statisticsEntity.guess6);
     print('NUMBER_OF_GAMES: ${sharedPreferences.getInt(NUMBER_OF_GAMES)}');
     print(
         'NUMBER_OF_WIN_GAMES: ${sharedPreferences.getInt(NUMBER_OF_WIN_GAMES)}');
