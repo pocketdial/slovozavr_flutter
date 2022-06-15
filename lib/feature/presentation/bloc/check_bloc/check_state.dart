@@ -1,13 +1,19 @@
-import 'package:slovozavr_flutter/feature/domain/entities/word_entity.dart';
-
 abstract class CheckWordState {
   const CheckWordState();
 }
 
 class CheckEmpty extends CheckWordState {}
 
-class CheckWord extends CheckWordState {
-  final WordEntity word;
+class CheckLoading extends CheckWordState {}
 
-  CheckWord(this.word);
+class CheckCompleted extends CheckWordState {
+  final bool result;
+
+  CheckCompleted(this.result);
+}
+
+class CheckError extends CheckWordState {
+  final String message;
+
+  CheckError({required this.message});
 }
