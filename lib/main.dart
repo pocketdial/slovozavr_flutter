@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:slovozavr_flutter/common/app_colors.dart';
 import 'package:slovozavr_flutter/feature/presentation/bloc/check_bloc/check_bloc.dart';
 import 'package:slovozavr_flutter/feature/presentation/bloc/secret_word_cubit/secret_word_cubit.dart';
 import 'package:slovozavr_flutter/feature/presentation/pages/game_screen.dart';
@@ -23,8 +24,8 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         theme: ThemeData.dark().copyWith(
-          backgroundColor: Colors.black,
-          scaffoldBackgroundColor: Colors.grey,
+          backgroundColor: AppColors.mainBackground,
+          scaffoldBackgroundColor: AppColors.mainBackground,
         ),
         home: HomePage(),
       ),
