@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
         BlocProvider<CheckWordBloc>(create: (context) => sl<CheckWordBloc>()),
       ],
       child: Scaffold(
-        appBar: AppBarWidget.getAppBar(),
+        appBar: AppBarWidget.getAppBar(context),
         body: BodyWidget(),
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:slovozavr_flutter/common/app_colors.dart';
+import 'package:slovozavr_flutter/feature/domain/models/frame_data.dart';
+import 'package:slovozavr_flutter/feature/domain/models/key_data.dart';
 import 'package:slovozavr_flutter/feature/presentation/pages/game_screen.dart';
 import 'package:slovozavr_flutter/locator_service.dart' as di;
 
@@ -23,10 +25,10 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        theme: ThemeData.dark().copyWith(
-          backgroundColor: AppColors.mainBackground,
-          scaffoldBackgroundColor: AppColors.mainBackground,
-        ),
+        // theme: ThemeData.dark().copyWith(
+        //   backgroundColor: AppColors.mainBackground,
+        //   scaffoldBackgroundColor: AppColors.mainBackground,
+        // ),
         home: HomePage(),
       ),
     );

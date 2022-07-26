@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:slovozavr_flutter/feature/domain/models/frame_data.dart';
+import 'package:slovozavr_flutter/feature/presentation/widgets/keyboard_widget.dart';
+import 'package:slovozavr_flutter/feature/presentation/widgets/row_of_frames_widget.dart';
 
 class BodyWidget extends StatelessWidget {
-  const BodyWidget({
-    Key? key,
-  }) : super(key: key);
+  FrameData frameData = FrameData();
+  final keyIsFirstLoaded = 'is_first_loaded';
 
   @override
   Widget build(BuildContext context) {

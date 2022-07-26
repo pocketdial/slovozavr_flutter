@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:slovozavr_flutter/common/app_colors.dart';
+import 'package:slovozavr_flutter/feature/domain/game.dart';
+import 'package:slovozavr_flutter/feature/presentation/widgets/rules_widget.dart';
 
 class AppBarWidget {
-  static getAppBar() {
+  static getAppBar(BuildContext context) {
     return AppBar(
       title: const Text('СЛОВОЗАВР'),
       centerTitle: true,
@@ -19,7 +21,7 @@ class AppBarWidget {
         ),
         onPressed: () {
           //showAlert(context, 'Сам перегружай!');
-          //resetGame(context);
+          resetGame(context);
         },
       ),
       actions: <Widget>[
@@ -31,10 +33,10 @@ class AppBarWidget {
           onPressed: () {
             // showAlert(context,
             //     'Правила просты донельзя: серый цвет - буква не угадана, жёлтый цвет - угадана, но не на своём месте, зелёный цвет - буква правильная и на своём месте.');
-            // showDialog(
-            //   context: context,
-            //   builder: (BuildContext context) => _buildRulesDialog(context),
-            // );
+            showDialog(
+              context: context,
+              builder: (BuildContext context) => RulesDialog(),
+            );
           },
         ),
       ],
