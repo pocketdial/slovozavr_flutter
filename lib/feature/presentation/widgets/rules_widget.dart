@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:slovozavr_flutter/common/app_colors.dart';
 
 class RulesDialog extends StatelessWidget {
   const RulesDialog({Key? key}) : super(key: key);
@@ -11,13 +12,13 @@ class RulesDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('Угадайте загаданное слово с шести попыток.'),
-          SizedBox(
+          const Text('Угадайте загаданное слово с шести попыток.'),
+          const SizedBox(
             height: 15,
           ),
-          Text(
+          const Text(
               'После каждой попытки цвет букв будет меняться, чтобы показать какие буквы есть в загаданном слове!'),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Row(
@@ -29,7 +30,7 @@ class RulesDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4.0),
-                  color: Color(0xFF6aaa64),
+                  color: AppColors.frameColorOk,
                   border: Border.all(
                     color: Colors.grey,
                     width: 2,
@@ -41,7 +42,7 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: Colors.white, //fontColour,
+                      color: AppColors.frameColorNew, //fontColour,
                       fontWeight: FontWeight.bold,
                       //height: 1,
                     ),
@@ -56,9 +57,9 @@ class RulesDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4.0),
-                  color: Colors.white,
+                  color: AppColors.frameColorNew,
                   border: Border.all(
-                    color: Colors.grey,
+                    color: AppColors.frameColorNo,
                     width: 2,
                   ),
                 ),
