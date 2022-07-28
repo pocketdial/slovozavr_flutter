@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:slovozavr_flutter/feature/domain/models/frame_data.dart';
 import 'package:slovozavr_flutter/feature/domain/models/key_data.dart';
 import 'package:slovozavr_flutter/feature/domain/models/words.dart';
 import 'package:slovozavr_flutter/feature/domain/models/words_full.dart';
+import 'package:slovozavr_flutter/feature/presentation/widgets/rules_widget.dart';
 
 int wordCount = 0;
 int letterCount = -1;
@@ -142,4 +144,23 @@ void showWinAlert(BuildContext context) {
       );
     },
   );
+}
+
+void showDialogIfFirstLoaded(BuildContext context) async {
+  SharedPreferences.getInstance().then((prefs) {
+    final int dialogOpen = prefs.getInt('dialog_open') ?? 0;
+    if (dialogOpen == 0) {
+      //show dialog for one time only
+      Future.delayed(const Duration(milliseconds: 1000), () {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            // return object of type Dialog
+            return const RulesDialog();
+          },
+        );
+        prefs.setInt("dialog_open", 1);
+      });
+    }
+  });
 }

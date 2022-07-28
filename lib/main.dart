@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:slovozavr_flutter/common/app_colors.dart';
 import 'package:slovozavr_flutter/feature/domain/models/frame_data.dart';
 import 'package:slovozavr_flutter/feature/domain/models/key_data.dart';
 import 'package:slovozavr_flutter/feature/presentation/pages/game_screen.dart';
