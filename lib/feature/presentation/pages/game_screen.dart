@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:slovozavr_flutter/common/app_colors.dart';
 import 'package:slovozavr_flutter/feature/domain/game.dart';
 import 'package:slovozavr_flutter/feature/presentation/widgets/app_bar_widget.dart';
 import 'package:slovozavr_flutter/feature/presentation/widgets/body_widget.dart';
@@ -18,6 +19,7 @@ class HomePage extends StatelessWidget {
         BlocProvider<CheckWordBloc>(create: (context) => sl<CheckWordBloc>()),
       ],
       child: Scaffold(
+        backgroundColor: AppColors.mainBackground,
         appBar: AppBarWidget.getAppBar(context),
         body: BodyWidget(),
       ),

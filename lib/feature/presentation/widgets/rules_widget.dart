@@ -7,7 +7,12 @@ class RulesDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Правила игры'),
+      title: const Text(
+        'Правила игры',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +37,7 @@ class RulesDialog extends StatelessWidget {
                   borderRadius: BorderRadius.circular(4.0),
                   color: AppColors.frameColorOk,
                   border: Border.all(
-                    color: Colors.grey,
+                    color: AppColors.frameBorderColor,
                     width: 2,
                   ),
                 ),
@@ -42,9 +47,8 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: AppColors.frameColorNew, //fontColour,
+                      color: AppColors.frameColorNew,
                       fontWeight: FontWeight.bold,
-                      //height: 1,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -69,9 +73,8 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: Colors.black, //fontColour,
+                      color: AppColors.frameFontColorNew,
                       fontWeight: FontWeight.bold,
-                      //height: 1,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -84,9 +87,9 @@ class RulesDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4.0),
-                  color: Colors.white,
+                  color: AppColors.frameColorNew,
                   border: Border.all(
-                    color: Colors.grey,
+                    color: AppColors.frameBorderColor,
                     width: 2,
                   ),
                 ),
@@ -96,9 +99,8 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: Colors.black, //fontColour,
+                      color: AppColors.frameFontColorNew,
                       fontWeight: FontWeight.bold,
-                      //height: 1,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -111,9 +113,9 @@ class RulesDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4.0),
-                  color: Colors.white,
+                  color: AppColors.frameColorNew,
                   border: Border.all(
-                    color: Colors.grey,
+                    color: AppColors.frameBorderColor,
                     width: 2,
                   ),
                 ),
@@ -123,9 +125,8 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: Colors.black, //fontColour,
+                      color: AppColors.frameFontColorNew,
                       fontWeight: FontWeight.bold,
-                      //height: 1,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -138,9 +139,9 @@ class RulesDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4.0),
-                  color: Colors.white,
+                  color: AppColors.frameColorNew,
                   border: Border.all(
-                    color: Colors.grey,
+                    color: AppColors.frameBorderColor,
                     width: 2,
                   ),
                 ),
@@ -150,9 +151,8 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: Colors.black, //fontColour,
+                      color: AppColors.frameFontColorNew,
                       fontWeight: FontWeight.bold,
-                      //height: 1,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -160,27 +160,26 @@ class RulesDialog extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           RichText(
-            text: TextSpan(
-              style: const TextStyle(
+            text: const TextSpan(
+              style: TextStyle(
                 fontSize: 16.0,
-                color: Colors.black,
+                color: AppColors.frameFontColorNew,
               ),
               children: <TextSpan>[
                 TextSpan(text: 'Буква '),
                 TextSpan(
-                    text: 'П',
-                    style: const TextStyle(fontWeight: FontWeight.bold)),
+                    text: 'П', style: TextStyle(fontWeight: FontWeight.bold)),
                 TextSpan(
                     text:
                         ' есть в загаданном слове и стоит в правильном месте.'),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Row(
@@ -194,7 +193,7 @@ class RulesDialog extends StatelessWidget {
                   borderRadius: BorderRadius.circular(4.0),
                   color: Colors.white,
                   border: Border.all(
-                    color: Colors.grey,
+                    color: AppColors.frameBorderColor,
                     width: 2,
                   ),
                 ),
@@ -204,9 +203,8 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: Colors.black, //fontColour,
+                      color: AppColors.frameFontColorNew,
                       fontWeight: FontWeight.bold,
-                      //height: 1,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -219,9 +217,9 @@ class RulesDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4.0),
-                  color: Colors.white,
+                  color: AppColors.frameColorNew,
                   border: Border.all(
-                    color: Colors.grey,
+                    color: AppColors.frameBorderColor,
                     width: 2,
                   ),
                 ),
@@ -231,9 +229,8 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: Colors.black, //fontColour,
+                      color: AppColors.frameFontColorNew,
                       fontWeight: FontWeight.bold,
-                      //height: 1,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -248,7 +245,7 @@ class RulesDialog extends StatelessWidget {
                   borderRadius: BorderRadius.circular(4.0),
                   color: Color(0xFFc9b458),
                   border: Border.all(
-                    color: Colors.grey,
+                    color: AppColors.frameBorderColor,
                     width: 2,
                   ),
                 ),
@@ -258,9 +255,8 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: Colors.white, //fontColour,
+                      color: AppColors.frameColorNew,
                       fontWeight: FontWeight.bold,
-                      //height: 1,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -273,7 +269,7 @@ class RulesDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4.0),
-                  color: Colors.white,
+                  color: AppColors.frameColorNew,
                   border: Border.all(
                     color: Colors.grey,
                     width: 2,
@@ -285,9 +281,8 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: Colors.black, //fontColour,
+                      color: AppColors.frameFontColorNew,
                       fontWeight: FontWeight.bold,
-                      //height: 1,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -300,9 +295,9 @@ class RulesDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4.0),
-                  color: Colors.white,
+                  color: AppColors.frameColorNew,
                   border: Border.all(
-                    color: Colors.grey,
+                    color: AppColors.frameBorderColor,
                     width: 2,
                   ),
                 ),
@@ -312,9 +307,8 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: Colors.black, //fontColour,
+                      color: AppColors.frameFontColorNew,
                       fontWeight: FontWeight.bold,
-                      //height: 1,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -322,27 +316,26 @@ class RulesDialog extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           RichText(
-            text: TextSpan(
-              style: const TextStyle(
+            text: const TextSpan(
+              style: TextStyle(
                 fontSize: 16.0,
-                color: Colors.black,
+                color: AppColors.frameFontColorNew,
               ),
               children: <TextSpan>[
                 TextSpan(text: 'Буква '),
                 TextSpan(
-                    text: 'Г',
-                    style: const TextStyle(fontWeight: FontWeight.bold)),
+                    text: 'Г', style: TextStyle(fontWeight: FontWeight.bold)),
                 TextSpan(
                     text:
                         ' есть в загаданном слове, но стоит не на том месте.'),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Row(
@@ -354,9 +347,9 @@ class RulesDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4.0),
-                  color: Colors.white,
+                  color: AppColors.frameColorNew,
                   border: Border.all(
-                    color: Colors.grey,
+                    color: AppColors.frameBorderColor,
                     width: 2,
                   ),
                 ),
@@ -366,9 +359,8 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: Colors.black, //fontColour,
+                      color: AppColors.frameFontColorNew,
                       fontWeight: FontWeight.bold,
-                      //height: 1,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -381,9 +373,9 @@ class RulesDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4.0),
-                  color: Colors.white,
+                  color: AppColors.frameColorNew,
                   border: Border.all(
-                    color: Colors.grey,
+                    color: AppColors.frameBorderColor,
                     width: 2,
                   ),
                 ),
@@ -393,9 +385,8 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: Colors.black, //fontColour,
+                      color: AppColors.frameFontColorNew,
                       fontWeight: FontWeight.bold,
-                      //height: 1,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -408,9 +399,9 @@ class RulesDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4.0),
-                  color: Colors.white,
+                  color: AppColors.frameColorNew,
                   border: Border.all(
-                    color: Colors.grey,
+                    color: AppColors.frameBorderColor,
                     width: 2,
                   ),
                 ),
@@ -420,9 +411,8 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: Colors.black, //fontColour,
+                      color: AppColors.frameFontColorNew,
                       fontWeight: FontWeight.bold,
-                      //height: 1,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -435,9 +425,9 @@ class RulesDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4.0),
-                  color: Colors.white,
+                  color: AppColors.frameColorNew,
                   border: Border.all(
-                    color: Colors.grey,
+                    color: AppColors.frameBorderColor,
                     width: 2,
                   ),
                 ),
@@ -447,9 +437,8 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: Colors.black, //fontColour,
+                      color: AppColors.frameFontColorNew,
                       fontWeight: FontWeight.bold,
-                      //height: 1,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -462,9 +451,9 @@ class RulesDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4.0),
-                  color: Color(0xFF787c7e),
+                  color: AppColors.frameColorNo,
                   border: Border.all(
-                    color: Colors.grey,
+                    color: AppColors.frameBorderColor,
                     width: 2,
                   ),
                 ),
@@ -474,9 +463,8 @@ class RulesDialog extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Arial',
                       fontSize: 40,
-                      color: Colors.white, //fontColour,
+                      color: AppColors.frameColorNew,
                       fontWeight: FontWeight.bold,
-                      //height: 1,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -484,22 +472,21 @@ class RulesDialog extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           RichText(
-            text: TextSpan(
+            text: const TextSpan(
               // Note: Styles for TextSpans must be explicitly defined.
               // Child text spans will inherit styles from parent
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 16.0,
-                color: Colors.black,
+                color: AppColors.frameFontColorNew,
               ),
               children: <TextSpan>[
                 TextSpan(text: 'Буквы '),
                 TextSpan(
-                    text: 'А',
-                    style: const TextStyle(fontWeight: FontWeight.bold)),
+                    text: 'А', style: TextStyle(fontWeight: FontWeight.bold)),
                 TextSpan(text: ' нет в загаданном слове.'),
               ],
             ),
@@ -507,13 +494,32 @@ class RulesDialog extends StatelessWidget {
         ],
       ),
       actions: <Widget>[
-        FlatButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          textColor: Theme.of(context).primaryColor,
-          child: const Text('Играть'),
-        ),
+        // FlatButton(
+        //   onPressed: () {
+        //     Navigator.of(context).pop();
+        //   },
+        //   textColor: Theme.of(context).primaryColor,
+        //   child: const Text(
+        //     'Играть',
+        //     style: TextStyle(
+        //       fontSize: 20,
+        //     ),
+        //   ),
+        // ),
+
+        Center(
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text(
+              'Играть',
+              style: TextStyle(
+                fontSize: 25,
+              ),
+            ),
+          ),
+        )
       ],
     );
   }

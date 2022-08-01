@@ -9,8 +9,8 @@ import 'package:slovozavr_flutter/feature/presentation/widgets/rules_widget.dart
 
 int wordCount = 0;
 int letterCount = -1;
-String secretWord = Words().getRandomWord();
-//String secretWord = 'ПАПКА';
+//String secretWord = Words().getRandomWord();
+String secretWord = 'ШАПКА';
 
 void wordIncrement() {
   wordCount++;
@@ -39,7 +39,7 @@ void checkWord(context) {
           .frames[wordCount][4]
           .letter;
   if (!FullWords().isWordExists(currentWord)) {
-    showAlert(context, 'Извините, слова $currentWord в нашей базе нет :(');
+    showAlert(context, 'Извините, слова $currentWord нет в нашей базе :(');
     //showAlert(context, '$currentWord? Не выдумывай, пожалуйста, слова!');
     // for (int i = 0; i < 5; i++) {
     //   Provider.of<FrameData>(context, listen: false).changeLetter(
@@ -50,8 +50,6 @@ void checkWord(context) {
   }
   if (currentWord == secretWord) {
     Provider.of<FrameData>(context, listen: false).changeRowWinColor();
-    //print('weee!');
-    //showAlert(context, 'Вы только посмотрите! Молодец!');
     showWinAlert(context);
   } else {
     checkLetters(context);
@@ -64,41 +62,53 @@ void checkLetters(context) {
     showAlert(context, 'Ну, почти! Загаданное слово: $secretWord');
   }
   List<String> secretList = secretWord.split('');
+  List<String> guessList = [];
+  guessList.add(Provider.of<FrameData>(context, listen: false)
+      .frames[wordCount][0]
+      .letter);
+  guessList.add(Provider.of<FrameData>(context, listen: false)
+      .frames[wordCount][1]
+      .letter);
+  guessList.add(Provider.of<FrameData>(context, listen: false)
+      .frames[wordCount][2]
+      .letter);
+  guessList.add(Provider.of<FrameData>(context, listen: false)
+      .frames[wordCount][3]
+      .letter);
+  guessList.add(Provider.of<FrameData>(context, listen: false)
+      .frames[wordCount][4]
+      .letter);
 
   for (int i = 0; i < 5; i++) {
-    if (Provider.of<FrameData>(context, listen: false)
-            .frames[wordCount][i]
-            .letter ==
-        secretList[i]) {
+    Map<int, String> map = {1: "", 2: "", 3: "", 4: "", 5: ""};
+
+    if (guessList[i] == secretList[i]) {
       Provider.of<FrameData>(context, listen: false).changeColor(
           Provider.of<FrameData>(context, listen: false).frames[wordCount][i],
           const Color(0xFF6aaa64));
-      Provider.of<KeyData>(context, listen: false).changeColorOk(
-          Provider.of<FrameData>(context, listen: false)
-              .frames[wordCount][i]
-              .letter);
+      Provider.of<KeyData>(context, listen: false).changeColorOk(guessList[i]);
       secretList[i] = '';
-    } else if (secretList.contains(
-        Provider.of<FrameData>(context, listen: false)
-            .frames[wordCount][i]
-            .letter)) {
+      map[i] = guessList[i];
+    } else if (secretList.contains(guessList[i])) {
       Provider.of<FrameData>(context, listen: false).changeColor(
           Provider.of<FrameData>(context, listen: false).frames[wordCount][i],
           const Color(0xFFc9b458));
-      Provider.of<KeyData>(context, listen: false).changeColorAlmost(
-          Provider.of<FrameData>(context, listen: false)
-              .frames[wordCount][i]
-              .letter);
+      Provider.of<KeyData>(context, listen: false)
+          .changeColorAlmost(guessList[i]);
+      map[i] = guessList[i];
     } else {
       Provider.of<FrameData>(context, listen: false).changeColor(
           Provider.of<FrameData>(context, listen: false).frames[wordCount][i],
           const Color(0xFF787c7e));
-      Provider.of<KeyData>(context, listen: false).changeColorUsed(
-          Provider.of<FrameData>(context, listen: false)
-              .frames[wordCount][i]
-              .letter);
+      Provider.of<KeyData>(context, listen: false)
+          .changeColorUsed(guessList[i]);
+      map[i] = guessList[i];
     }
   }
+}
+
+bool? haveDoubles(String letter) {
+  return (letter.allMatches(secretWord).length) > 1;
 }
 
 void resetCounts() {
@@ -138,7 +148,12 @@ void showWinAlert(BuildContext context) {
               Navigator.of(context).pop();
             },
             textColor: Theme.of(context).primaryColor,
-            child: const Text('Играть ещё'),
+            child: const Text(
+              'Играть ещё',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
           ),
         ],
       );
