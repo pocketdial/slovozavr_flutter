@@ -1,59 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:slovozavr_flutter/common/app_colors.dart';
 
 class KeyData extends ChangeNotifier {
   Map<String, Color> keys = {
-    'Й': Colors.grey.shade300,
-    'Ц': Colors.grey.shade300,
-    'У': Colors.grey.shade300,
-    'К': Colors.grey.shade300,
-    'Е': Colors.grey.shade300,
-    'Н': Colors.grey.shade300,
-    'Г': Colors.grey.shade300,
-    'Ш': Colors.grey.shade300,
-    'Щ': Colors.grey.shade300,
-    'З': Colors.grey.shade300,
-    'Х': Colors.grey.shade300,
-    'Ъ': Colors.grey.shade300,
-    'Ф': Colors.grey.shade300,
-    'Ы': Colors.grey.shade300,
-    'В': Colors.grey.shade300,
-    'А': Colors.grey.shade300,
-    'П': Colors.grey.shade300,
-    'Р': Colors.grey.shade300,
-    'О': Colors.grey.shade300,
-    'Л': Colors.grey.shade300,
-    'Д': Colors.grey.shade300,
-    'Ж': Colors.grey.shade300,
-    'Э': Colors.grey.shade300,
-    'Я': Colors.grey.shade300,
-    'Ч': Colors.grey.shade300,
-    'С': Colors.grey.shade300,
-    'М': Colors.grey.shade300,
-    'И': Colors.grey.shade300,
-    'Т': Colors.grey.shade300,
-    'Ь': Colors.grey.shade300,
-    'Б': Colors.grey.shade300,
-    'Ю': Colors.grey.shade300,
+    'Й': AppColors.keyColorNew,
+    'Ц': AppColors.keyColorNew,
+    'У': AppColors.keyColorNew,
+    'К': AppColors.keyColorNew,
+    'Е': AppColors.keyColorNew,
+    'Н': AppColors.keyColorNew,
+    'Г': AppColors.keyColorNew,
+    'Ш': AppColors.keyColorNew,
+    'Щ': AppColors.keyColorNew,
+    'З': AppColors.keyColorNew,
+    'Х': AppColors.keyColorNew,
+    'Ъ': AppColors.keyColorNew,
+    'Ф': AppColors.keyColorNew,
+    'Ы': AppColors.keyColorNew,
+    'В': AppColors.keyColorNew,
+    'А': AppColors.keyColorNew,
+    'П': AppColors.keyColorNew,
+    'Р': AppColors.keyColorNew,
+    'О': AppColors.keyColorNew,
+    'Л': AppColors.keyColorNew,
+    'Д': AppColors.keyColorNew,
+    'Ж': AppColors.keyColorNew,
+    'Э': AppColors.keyColorNew,
+    'Я': AppColors.keyColorNew,
+    'Ч': AppColors.keyColorNew,
+    'С': AppColors.keyColorNew,
+    'М': AppColors.keyColorNew,
+    'И': AppColors.keyColorNew,
+    'Т': AppColors.keyColorNew,
+    'Ь': AppColors.keyColorNew,
+    'Б': AppColors.keyColorNew,
+    'Ю': AppColors.keyColorNew,
   };
 
   void changeColorUsed(String letter) {
-    keys[letter] = const Color(0xFF787c7e);
+    keys[letter] = AppColors.frameColorNo;
     notifyListeners();
   }
 
   void changeColorAlmost(String letter) {
-    keys[letter] = const Color(0xFFc9b458);
-    notifyListeners();
+    if (keys[letter] != AppColors.frameColorOk) {
+      keys[letter] = AppColors.frameColorNear;
+      notifyListeners();
+    }
   }
 
   void changeColorOk(String letter) {
-    keys[letter] = const Color(0xFF6aaa64);
+    keys[letter] = AppColors.frameColorOk;
     notifyListeners();
   }
 
   void resetKeysColors() {
     keys.forEach((key, value) {
-      keys[key] = Colors.grey.shade300;
+      keys[key] = AppColors.keyColorNew;
     });
     notifyListeners();
   }

@@ -23,7 +23,8 @@ void letterIncrement() {
   }
 }
 
-void checkWord(context) {
+String? checkWord(context) {
+  String result = '';
   String currentWord = Provider.of<FrameData>(context, listen: false)
           .frames[wordCount][0]
           .letter +
@@ -40,27 +41,30 @@ void checkWord(context) {
           .frames[wordCount][4]
           .letter;
   if (!FullWords().isWordExists(currentWord)) {
-    showAlert(context, 'Извините, слова $currentWord нет в нашей базе :(');
+    //showAlert(context, 'Извините, слова $currentWord нет в нашей базе :(');
     //showAlert(context, '$currentWord? Не выдумывай, пожалуйста, слова!');
     // for (int i = 0; i < 5; i++) {
     //   Provider.of<FrameData>(context, listen: false).changeLetter(
     //       Provider.of<FrameData>(context, listen: false).frames[wordCount][i],
     //       '');
     // }
-    return;
+    return 'notFound';
   }
   if (currentWord == secretWord) {
     Provider.of<FrameData>(context, listen: false).changeRowWinColor();
-    showWinAlert(context);
+    //showWinAlert(context);
+    result = 'win';
   } else {
-    checkLetters(context);
+    result = checkLetters(context);
   }
   resetCounts();
+  return result;
 }
 
-void checkLetters(context) {
+String checkLetters(context) {
   if (wordCount == 5) {
-    showAlert(context, 'Ну, почти! Загаданное слово: $secretWord');
+    //showAlert(context, 'Ну, почти! Загаданное слово: $secretWord');
+    return 'lose';
   }
   List<String> secretList = secretWord.split('');
   List<String> guessList = [];
@@ -141,6 +145,7 @@ void checkLetters(context) {
           .changeColorUsed(guessList[i]);
     }
   }
+  return '';
 }
 
 bool haveDoubles(String word, String letter) {

@@ -4,9 +4,12 @@ import 'package:slovozavr_flutter/feature/domain/game.dart';
 import 'package:slovozavr_flutter/feature/domain/models/frame_data.dart';
 import 'package:slovozavr_flutter/feature/domain/models/key_data.dart';
 import 'package:slovozavr_flutter/feature/presentation/widgets/key_button_widget.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 //Widget keyboard() {
 class Keyboard extends StatelessWidget {
+  late AnimationController localAnimationController;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -66,9 +69,42 @@ class Keyboard extends StatelessWidget {
                 ),
                 onPressed: () {
                   if (letterCount != 4) {
-                    showAlert(context, 'Введите все 5 букв!');
+                    showTopSnackBar(
+                      context,
+                      const CustomSnackBar.info(
+                        message: "Слово должно состоять из 5 букв!",
+                      ),
+                    );
                   } else {
-                    checkWord(context);
+                    //checkWord(context);
+                    switch (checkWord(context)) {
+                      case 'win':
+                        showTopSnackBar(
+                          context,
+                          const CustomSnackBar.success(
+                            message: "УРА! Правильно!",
+                          ),
+                        );
+                        break;
+                      case 'lose':
+                        showTopSnackBar(
+                          context,
+                          CustomSnackBar.info(
+                            message:
+                                "Вы проиграли! Загаданное слово: $secretWord",
+                          ),
+                        );
+                        break;
+                      case 'notFound':
+                        showTopSnackBar(
+                          context,
+                          const CustomSnackBar.error(
+                            message:
+                                "Такого слова не существует! (точнее не найдено в нашем словаре)",
+                          ),
+                        );
+                        break;
+                    }
                   }
                 },
                 child: const Text('ENTER'),
