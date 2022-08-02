@@ -11,6 +11,7 @@ int wordCount = 0;
 int letterCount = -1;
 //String secretWord = Words().getRandomWord();
 String secretWord = 'ШАПКА';
+Map<String, int> map = {};
 
 void wordIncrement() {
   wordCount++;
@@ -78,42 +79,78 @@ void checkLetters(context) {
   guessList.add(Provider.of<FrameData>(context, listen: false)
       .frames[wordCount][4]
       .letter);
+  String guessWord = guessList.join();
 
   for (int i = 0; i < 5; i++) {
-    Map<int, String> map = {1: "", 2: "", 3: "", 4: "", 5: ""};
-
     if (guessList[i] == secretList[i]) {
       Provider.of<FrameData>(context, listen: false).changeColor(
           Provider.of<FrameData>(context, listen: false).frames[wordCount][i],
           const Color(0xFF6aaa64));
       Provider.of<KeyData>(context, listen: false).changeColorOk(guessList[i]);
-      secretList[i] = '';
-      map[i] = guessList[i];
+      //secretList[i] = '';
+
+      //print(guessWord);
+      //print('haveDoubles1 ' + haveDoubles(guessWord, guessList[i]).toString());
+      //print('haveDoubles2 ' + haveDoubles(secretWord, guessList[i]).toString());
+      if (haveDoubles(guessWord, guessList[i]) &&
+          !haveDoubles(secretWord, guessList[i])) {
+        print(guessList[i]);
+        print(map);
+        if (map.containsKey(guessList[i])) {
+          int j = map[guessList[i]] ?? 0;
+          print('j: ' + j.toString());
+          Provider.of<FrameData>(context, listen: false).changeColor(
+              Provider.of<FrameData>(context, listen: false).frames[wordCount]
+                  [j],
+              const Color(0xFF787c7e));
+        }
+        map[guessList[i]] = i;
+      }
     } else if (secretList.contains(guessList[i])) {
-      Provider.of<FrameData>(context, listen: false).changeColor(
-          Provider.of<FrameData>(context, listen: false).frames[wordCount][i],
-          const Color(0xFFc9b458));
-      Provider.of<KeyData>(context, listen: false)
-          .changeColorAlmost(guessList[i]);
-      map[i] = guessList[i];
+      if (haveDoubles(guessWord, guessList[i]) &&
+          !haveDoubles(secretWord, guessList[i])) {
+        if (!map.containsKey(guessList[i])) {
+          Provider.of<FrameData>(context, listen: false).changeColor(
+              Provider.of<FrameData>(context, listen: false).frames[wordCount]
+                  [i],
+              const Color(0xFFc9b458));
+          Provider.of<KeyData>(context, listen: false)
+              .changeColorAlmost(guessList[i]);
+          map[guessList[i]] = i;
+        } else {
+          Provider.of<FrameData>(context, listen: false).changeColor(
+              Provider.of<FrameData>(context, listen: false).frames[wordCount]
+                  [i],
+              const Color(0xFF787c7e));
+          Provider.of<KeyData>(context, listen: false)
+              .changeColorUsed(guessList[i]);
+        }
+      } else {
+        Provider.of<FrameData>(context, listen: false).changeColor(
+            Provider.of<FrameData>(context, listen: false).frames[wordCount][i],
+            const Color(0xFFc9b458));
+        Provider.of<KeyData>(context, listen: false)
+            .changeColorAlmost(guessList[i]);
+        map[guessList[i]] = i;
+      }
     } else {
       Provider.of<FrameData>(context, listen: false).changeColor(
           Provider.of<FrameData>(context, listen: false).frames[wordCount][i],
           const Color(0xFF787c7e));
       Provider.of<KeyData>(context, listen: false)
           .changeColorUsed(guessList[i]);
-      map[i] = guessList[i];
     }
   }
 }
 
-bool? haveDoubles(String letter) {
-  return (letter.allMatches(secretWord).length) > 1;
+bool haveDoubles(String word, String letter) {
+  return (letter.allMatches(word).length) > 1;
 }
 
 void resetCounts() {
   wordCount++;
   letterCount = -1;
+  map = {};
 }
 
 void resetGame(context) {
