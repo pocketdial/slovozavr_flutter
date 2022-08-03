@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color mainBackground = Colors.white;
-  static const Color appBarBackground = Color.fromARGB(255, 53, 112, 73);
-  static const Color appBarText = Color.fromARGB(255, 255, 255, 255);
+  static const Color mainBackground = Color.fromARGB(255, 255, 255, 255);
+  static const Color appBarBackground = Color.fromARGB(255, 255, 255, 255);
+  static const Color appBarText = Color.fromARGB(255, 117, 85, 85);
   static const Color appBarIcons = Colors.black;
 
   static const Color frameBorderColor = Colors.grey;

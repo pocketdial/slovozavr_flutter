@@ -100,7 +100,7 @@ class Keyboard extends StatelessWidget {
                           context,
                           const CustomSnackBar.error(
                             message:
-                                "Такого слова не существует! (точнее не найдено в нашем словаре)",
+                                "Такого слова не существует! (точнее его нет в нашем словаре)",
                           ),
                         );
                         break;

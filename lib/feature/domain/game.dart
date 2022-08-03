@@ -9,6 +9,7 @@ import 'package:slovozavr_flutter/feature/presentation/widgets/rules_widget.dart
 
 int wordCount = 0;
 int letterCount = -1;
+bool isGameStarted = true;
 //String secretWord = Words().getRandomWord();
 String secretWord = 'ШАПКА';
 Map<String, int> map = {};
@@ -54,6 +55,7 @@ String? checkWord(context) {
     Provider.of<FrameData>(context, listen: false).changeRowWinColor();
     //showWinAlert(context);
     result = 'win';
+    isGameStarted = false;
   } else {
     result = checkLetters(context);
   }
@@ -126,8 +128,8 @@ String checkLetters(context) {
               Provider.of<FrameData>(context, listen: false).frames[wordCount]
                   [i],
               const Color(0xFF787c7e));
-          Provider.of<KeyData>(context, listen: false)
-              .changeColorUsed(guessList[i]);
+          // Provider.of<KeyData>(context, listen: false)
+          //     .changeColorUsed(guessList[i]);
         }
       } else {
         Provider.of<FrameData>(context, listen: false).changeColor(
@@ -159,6 +161,7 @@ void resetCounts() {
 }
 
 void resetGame(context) {
+  isGameStarted = true;
   wordCount = 0;
   letterCount = -1;
   Provider.of<FrameData>(context, listen: false).resetFrameData();

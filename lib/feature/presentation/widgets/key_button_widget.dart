@@ -27,17 +27,19 @@ class KeyButton extends StatelessWidget {
             textStyle: const TextStyle(fontSize: 20),
           ),
           onPressed: () {
-            letterIncrement();
-            if (Provider.of<FrameData>(context, listen: false)
-                    .frames[wordCount][letterCount]
-                    .letter ==
-                '') {
-              Provider.of<FrameData>(context, listen: false).changeLetter(
-                  Provider.of<FrameData>(context, listen: false)
-                      .frames[wordCount][letterCount],
-                  letter);
+            print(isGameStarted);
+            if (isGameStarted == true) {
+              letterIncrement();
+              if (Provider.of<FrameData>(context, listen: false)
+                      .frames[wordCount][letterCount]
+                      .letter ==
+                  '') {
+                Provider.of<FrameData>(context, listen: false).changeLetter(
+                    Provider.of<FrameData>(context, listen: false)
+                        .frames[wordCount][letterCount],
+                    letter);
+              }
             }
-            //print('wordCount: $wordCount, letterCount: $letterCount');
           },
           child: Text(letter),
         ),
