@@ -7,10 +7,12 @@ class RulesDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text(
-        'Правила игры',
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
+      title: Center(
+        child: const Text(
+          'Правила игры',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       content: Column(
@@ -508,14 +510,21 @@ class RulesDialog extends StatelessWidget {
         // ),
 
         Center(
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text(
-              'Играть',
-              style: TextStyle(
-                fontSize: 25,
+          child: Container(
+            margin: EdgeInsets.fromLTRB(15, 0, 15, 15),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                'Играть',
+                style: TextStyle(
+                  fontSize: 25,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                primary: AppColors.frameColorOk,
+                padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
               ),
             ),
           ),
