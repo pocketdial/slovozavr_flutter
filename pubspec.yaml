@@ -54,6 +54,9 @@ dependencies:
   # snackbar
   top_snackbar_flutter: ^2.1.1
 
+  # chart
+  syncfusion_flutter_charts: ^20.2.40
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -80,6 +83,7 @@ flutter:
   assets:
     - images/dino.png
     - images/balloons.png
+    - images/statistics.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

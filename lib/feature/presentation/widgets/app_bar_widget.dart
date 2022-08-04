@@ -29,35 +29,8 @@ class AppBarWidget {
         IconButton(
           icon: const Icon(
             Icons.bar_chart_outlined,
-            color: AppColors.appBarIcons,
-          ),
-          onPressed: () {
-            // showAlert(context,
-            //     'Правила просты донельзя: серый цвет - буква не угадана, жёлтый цвет - угадана, но не на своём месте, зелёный цвет - буква правильная и на своём месте.');
-            showDialog(
-              context: context,
-              builder: (BuildContext context) => StatisticsDialog(),
-            );
-          },
-        ),
-        IconButton(
-          icon: const Icon(
-            Icons.bar_chart_sharp,
-            color: AppColors.appBarIcons,
-          ),
-          onPressed: () {
-            // showAlert(context,
-            //     'Правила просты донельзя: серый цвет - буква не угадана, жёлтый цвет - угадана, но не на своём месте, зелёный цвет - буква правильная и на своём месте.');
-            showDialog(
-              context: context,
-              builder: (BuildContext context) => StatisticsDialog(),
-            );
-          },
-        ),
-        IconButton(
-          icon: const Icon(
-            //Icons.bar_chart_sharp,
-            Icons.assessment_outlined,
+            size: 30,
+            //Icons.assessment_outlined,
             color: AppColors.appBarIcons,
           ),
           onPressed: () {
