@@ -93,7 +93,7 @@ Widget frameDraw(String letter, Color colour, Color fontColour) {
           letter,
           style: TextStyle(
             fontFamily: 'Ubuntu',
-            fontSize: 45,
+            fontSize: 40,
             color: colour == AppColors.frameColorNew
                 ? Colors.black
                 : Colors.white, //fontColour,

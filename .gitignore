@@ -28,3 +28,6 @@ doc/api/
 
 google-services.json
 words_1000.dart
+GoogleService-Info.plist
+firebase_options.dart
+firebase_app_id_file.json

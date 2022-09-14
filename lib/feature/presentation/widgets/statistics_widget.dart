@@ -33,7 +33,7 @@ class _StatisticsDialogState extends State<StatisticsDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: AppColors.alertDialogs,
-      insetPadding: EdgeInsets.symmetric(vertical: 120),
+      insetPadding: EdgeInsets.symmetric(vertical: 130),
       title: Center(
         child: const Text(
           'Статистика игры',
@@ -43,7 +43,7 @@ class _StatisticsDialogState extends State<StatisticsDialog> {
         ),
       ),
       content: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -156,7 +156,7 @@ class _StatisticsDialogState extends State<StatisticsDialog> {
                       ),
                       Container(
                           height: 15,
-                          width: (int.parse(try1) / numWinGames) * 250 + 12,
+                          width: (int.parse(try1) / numWinGames) * 200 + 12,
                           color: wordCount == 1
                               ? AppColors.frameColorOk
                               : AppColors.frameColorNo,
@@ -181,7 +181,7 @@ class _StatisticsDialogState extends State<StatisticsDialog> {
                       ),
                       Container(
                           height: 15,
-                          width: (int.parse(try2) / numWinGames) * 250 + 12,
+                          width: (int.parse(try2) / numWinGames) * 200 + 12,
                           color: wordCount == 2
                               ? AppColors.frameColorOk
                               : AppColors.frameColorNo,
@@ -206,9 +206,9 @@ class _StatisticsDialogState extends State<StatisticsDialog> {
                       ),
                       Container(
                           height: 15,
-                          width: ((int.parse(try3) / numWinGames) * 250 < 10)
+                          width: ((int.parse(try3) / numWinGames) * 200 < 10)
                               ? 12
-                              : (int.parse(try3) / numWinGames) * 250,
+                              : (int.parse(try3) / numWinGames) * 200,
                           color: wordCount == 3
                               ? AppColors.frameColorOk
                               : AppColors.frameColorNo,
@@ -233,9 +233,9 @@ class _StatisticsDialogState extends State<StatisticsDialog> {
                       ),
                       Container(
                           height: 15,
-                          width: ((int.parse(try4) / numWinGames) * 250 < 10)
+                          width: ((int.parse(try4) / numWinGames) * 200 < 10)
                               ? 12
-                              : (int.parse(try4) / numWinGames) * 250,
+                              : (int.parse(try4) / numWinGames) * 200,
                           color: wordCount == 4
                               ? AppColors.frameColorOk
                               : AppColors.frameColorNo,
@@ -260,9 +260,9 @@ class _StatisticsDialogState extends State<StatisticsDialog> {
                       ),
                       Container(
                           height: 15,
-                          width: ((int.parse(try5) / numWinGames) * 250 < 10)
+                          width: ((int.parse(try5) / numWinGames) * 200 < 10)
                               ? 12
-                              : (int.parse(try5) / numWinGames) * 250,
+                              : (int.parse(try5) / numWinGames) * 200,
                           color: wordCount == 5
                               ? AppColors.frameColorOk
                               : AppColors.frameColorNo,
@@ -287,9 +287,9 @@ class _StatisticsDialogState extends State<StatisticsDialog> {
                       ),
                       Container(
                           height: 15,
-                          width: ((int.parse(try6) / numWinGames) * 250 < 10)
+                          width: ((int.parse(try6) / numWinGames) * 200 < 10)
                               ? 12
-                              : (int.parse(try6) / numWinGames) * 250,
+                              : (int.parse(try6) / numWinGames) * 200,
                           color: wordCount == 6
                               ? AppColors.frameColorOk
                               : AppColors.frameColorNo,

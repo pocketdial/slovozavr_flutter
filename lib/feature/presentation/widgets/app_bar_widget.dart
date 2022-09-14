@@ -12,7 +12,7 @@ class AppBarWidget {
       centerTitle: true,
       titleTextStyle: TextStyle(
         color: AppColors.appBarText,
-        fontSize: 40,
+        fontSize: 30,
         //fontWeight: FontWeight.bold,
         fontFamily: 'RussoOne',
       ),
