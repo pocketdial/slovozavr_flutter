@@ -33,7 +33,7 @@ class _StatisticsDialogState extends State<StatisticsDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: AppColors.alertDialogs,
-      insetPadding: EdgeInsets.symmetric(vertical: 170),
+      insetPadding: EdgeInsets.symmetric(vertical: 120),
       title: Center(
         child: const Text(
           'Статистика игры',

@@ -10,8 +10,8 @@ import 'package:slovozavr_flutter/feature/presentation/widgets/rules_widget.dart
 int wordCount = 0;
 int letterCount = -1;
 bool isGameStarted = true;
-//String secretWord = Words().getRandomWord();
-String secretWord = 'ШАПКА';
+String secretWord = Words().getRandomWord();
+//String secretWord = 'ШАПКА';
 Map<String, int> map = {};
 
 void wordIncrement() {

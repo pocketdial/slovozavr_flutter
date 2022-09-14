@@ -1,4 +1,4 @@
-# slovozavr_flutter
+# slovozavr
 
 A new Flutter project.
 

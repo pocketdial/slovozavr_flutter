@@ -1,6 +1,6 @@
 {
-    "name": "slovozavr_flutter",
-    "short_name": "slovozavr_flutter",
+    "name": "slovozavr",
+    "short_name": "slovozavr",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
