@@ -7,12 +7,14 @@ import 'package:slovozavr_flutter/feature/presentation/widgets/statistics_widget
 class AppBarWidget {
   static getAppBar(BuildContext context) {
     return AppBar(
-      title: const Text('СЛОВОЗАВР'),
+      title: const Text('Словозавр'),
+      //title: const Text('СЛОВОЗАВР'),
       centerTitle: true,
-      titleTextStyle: const TextStyle(
+      titleTextStyle: TextStyle(
         color: AppColors.appBarText,
-        fontSize: 40,
-        fontWeight: FontWeight.bold,
+        fontSize: 45,
+        //fontWeight: FontWeight.bold,
+        fontFamily: 'RussoOne',
       ),
       backgroundColor: AppColors.appBarBackground,
       leading: IconButton(

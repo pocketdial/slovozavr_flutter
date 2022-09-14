@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:slovozavr_flutter/common/app_colors.dart';
 import 'package:slovozavr_flutter/feature/domain/game.dart';
 import 'package:slovozavr_flutter/feature/domain/models/frame_data.dart';
 import 'package:slovozavr_flutter/feature/domain/models/key_data.dart';
@@ -10,6 +12,8 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 //Widget keyboard() {
 class Keyboard extends StatelessWidget {
   late AnimationController localAnimationController;
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -63,9 +67,12 @@ class Keyboard extends StatelessWidget {
                 style: TextButton.styleFrom(
                   padding: const EdgeInsets.fromLTRB(8, 16.0, 8, 16),
                   primary: Colors.black,
-                  backgroundColor: Colors.grey.shade300,
+                  backgroundColor: AppColors.appBarIcons,
                   //minimumSize: const Size(45, 1),
-                  textStyle: const TextStyle(fontSize: 20),
+                  textStyle: const TextStyle(
+                    fontSize: 20,
+                    //fontWeight: FontWeight.w600,
+                  ),
                 ),
                 onPressed: () {
                   if (letterCount != 4) {
@@ -79,6 +86,7 @@ class Keyboard extends StatelessWidget {
                     //checkWord(context);
                     switch (checkWord(context)) {
                       case 'win':
+                        updateStatistics('win');
                         showTopSnackBar(
                           context,
                           const CustomSnackBar.success(
@@ -87,6 +95,7 @@ class Keyboard extends StatelessWidget {
                         );
                         break;
                       case 'lose':
+                        updateStatistics('lose');
                         showTopSnackBar(
                           context,
                           CustomSnackBar.info(
@@ -107,7 +116,7 @@ class Keyboard extends StatelessWidget {
                     }
                   }
                 },
-                child: const Text('ENTER'),
+                child: const Text('ВВОД'),
               ),
             ),
             KeyButton('Я', Provider.of<KeyData>(context).keys['Я']!),
@@ -124,12 +133,12 @@ class Keyboard extends StatelessWidget {
               margin: const EdgeInsets.all(5),
               child: TextButton(
                   style: TextButton.styleFrom(
-                    padding: const EdgeInsets.fromLTRB(8, 16.0, 8, 16),
-                    primary: Colors.black,
-                    backgroundColor: Colors.grey.shade300,
-                    //minimumSize: const Size(45, 1),
-                    textStyle: const TextStyle(fontSize: 20),
-                  ),
+                      padding: const EdgeInsets.fromLTRB(8, 16.0, 8, 16),
+                      primary: Colors.black,
+                      backgroundColor: AppColors.appBarIcons,
+                      //minimumSize: const Size(45, 1),
+                      textStyle: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w600)),
                   onPressed: () {
                     if (letterCount > -1) {
                       Provider.of<FrameData>(context, listen: false)
@@ -140,12 +149,43 @@ class Keyboard extends StatelessWidget {
                       letterCount--;
                     }
                   },
-                  child: const Icon(Icons.backspace_outlined) //Text('DEL'),
+                  child: const Icon(
+                    Icons.backspace_outlined,
+                  ) //Text('DEL'),
                   ),
             ),
           ],
         ),
       ],
     );
+  }
+
+  void updateStatistics(String result) async {
+    //print('start update');
+    final SharedPreferences prefs = await _prefs;
+    prefs.setInt("NUMBER_OF_GAMES", (prefs.getInt('NUMBER_OF_GAMES') ?? 0) + 1);
+    //print('end update');
+    switch (result) {
+      case 'win':
+        prefs.setInt("NUMBER_OF_TRY_$wordCount",
+            (prefs.getInt('NUMBER_OF_TRY_$wordCount') ?? 0) + 1);
+
+        prefs.setInt("NUMBER_OF_WIN_GAMES",
+            (prefs.getInt('NUMBER_OF_WIN_GAMES') ?? 0) + 1);
+        prefs.setInt("NUMBER_OF_ROW_NOW_GAMES",
+            (prefs.getInt('NUMBER_OF_ROW_NOW_GAMES') ?? 0) + 1);
+
+        if ((prefs.getInt('NUMBER_OF_ROW_NOW_GAMES') ?? 0) >
+            (prefs.getInt('NUMBER_OF_ROW_MAX_GAMES') ?? 0)) {
+          prefs.setInt("NUMBER_OF_ROW_MAX_GAMES",
+              (prefs.getInt('NUMBER_OF_ROW_NOW_GAMES') ?? 0));
+        }
+        break;
+      case 'lose':
+        prefs.setInt("NUMBER_OF_LOST_GAMES",
+            (prefs.getInt('NUMBER_OF_LOST_GAMES') ?? 0) + 1);
+        prefs.setInt("NUMBER_OF_ROW_NOW_GAMES", 0);
+        break;
+    }
   }
 }

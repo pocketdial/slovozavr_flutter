@@ -54,6 +54,9 @@ String? checkWord(context) {
   if (currentWord == secretWord) {
     Provider.of<FrameData>(context, listen: false).changeRowWinColor();
     //showWinAlert(context);
+    //print('before update');
+
+    //print('after update');
     result = 'win';
     isGameStarted = false;
   } else {
@@ -64,10 +67,6 @@ String? checkWord(context) {
 }
 
 String checkLetters(context) {
-  if (wordCount == 5) {
-    //showAlert(context, 'Ну, почти! Загаданное слово: $secretWord');
-    return 'lose';
-  }
   List<String> secretList = secretWord.split('');
   List<String> guessList = [];
   guessList.add(Provider.of<FrameData>(context, listen: false)
@@ -146,6 +145,11 @@ String checkLetters(context) {
       Provider.of<KeyData>(context, listen: false)
           .changeColorUsed(guessList[i]);
     }
+  }
+  if (wordCount == 5) {
+    //showAlert(context, 'Ну, почти! Загаданное слово: $secretWord');
+    //updateStatistics();
+    return 'lose';
   }
   return '';
 }

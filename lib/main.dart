@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         //   backgroundColor: AppColors.mainBackground,
         //   scaffoldBackgroundColor: AppColors.mainBackground,
         // ),
+        theme: ThemeData(fontFamily: 'Ubuntu'),
         home: HomePage(),
       ),
     );

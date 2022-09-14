@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:slovozavr_flutter/common/app_colors.dart';
 import 'package:slovozavr_flutter/feature/domain/models/frame_data.dart';
 
 class RowOfFrames extends StatelessWidget {
@@ -91,9 +92,9 @@ Widget frameDraw(String letter, Color colour, Color fontColour) {
         child: Text(
           letter,
           style: TextStyle(
-            fontFamily: 'Arial',
-            fontSize: 40,
-            color: colour == Colors.white
+            fontFamily: 'Ubuntu',
+            fontSize: 45,
+            color: colour == AppColors.frameColorNew
                 ? Colors.black
                 : Colors.white, //fontColour,
             fontWeight: FontWeight.bold,

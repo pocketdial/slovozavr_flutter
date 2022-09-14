@@ -1,50 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:slovozavr_flutter/common/app_colors.dart';
 import 'package:slovozavr_flutter/feature/domain/game.dart';
 import 'package:slovozavr_flutter/feature/domain/models/frame.dart';
 
 class FrameData extends ChangeNotifier {
   final List<List<Frame>> frames = [
     [
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black)
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew)
     ],
     [
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black)
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew)
     ],
     [
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black)
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew)
     ],
     [
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black)
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew)
     ],
     [
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black)
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew)
     ],
     [
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black),
-      Frame('', Colors.white, Colors.black)
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew),
+      Frame('', AppColors.frameColorNew, AppColors.frameFontColorNew)
     ],
   ];
 
@@ -74,7 +75,7 @@ class FrameData extends ChangeNotifier {
     for (int i = 0; i < 6; i++) {
       for (int j = 0; j < 5; j++) {
         frames[i][j].letter = '';
-        frames[i][j].colour = Colors.white;
+        frames[i][j].colour = AppColors.frameColorNew;
         notifyListeners();
       }
     }
